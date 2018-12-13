@@ -1,0 +1,42 @@
+LEVEL ORDER TRAVERSAL
+
+queue<Node*> q;
+struct Node *temp_node=root;
+    if (temp_node) {
+        q.push(temp_node);
+    }
+    while (!q.empty())
+        {
+            temp_node = q.front();
+            q.pop();
+            cout<<temp_node->data<<" ";
+
+            if (temp_node->left){
+                q.push(temp_node->left);
+            }
+            if (temp_node->right){
+                q.push(temp_node->right);
+            }
+		}
+
+///////////// Count Leaves
+
+int countLeaves(Node* root)
+{
+    if (root == NULL) {
+        return 0;
+    }
+    else if (root->left == NULL && root->right==NULL){
+        return 1;
+    }
+    else {
+        return (countLeaves(root->left)+countLeaves(root->right));
+    }
+    
+}
+
+
+/////////////////children sum parent
+
+/////////////////mirror tree
+
